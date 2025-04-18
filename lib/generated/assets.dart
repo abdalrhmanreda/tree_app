@@ -3,6 +3,8 @@ class Assets {
   Assets._();
 
   static const String imagesClock = 'assets/images/clock.jpg';
+  static const String imagesHello = 'assets/images/hello.json';
+  static const String imagesImg = 'assets/images/img.png';
   static const String imagesOne = 'assets/images/one.json';
   static const String imagesThree = 'assets/images/three.json';
   static const String imagesTree = 'assets/images/tree.riv';

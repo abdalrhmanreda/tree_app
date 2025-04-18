@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tree_app/config/routes/routes_path.dart';
+import 'package:tree_app/features/get_started/ui/screens/user_info.dart';
+import 'package:tree_app/features/home/ui/screens/home_screen.dart';
 
 import '../../features/get_started/ui/screens/get_start_screen.dart';
 
@@ -12,6 +14,14 @@ class AppRouter {
       case RoutePath.getStarted:
         return MaterialPageRoute(
           builder: (_) => const GetStartScreen(),
+        );
+      case RoutePath.userInfo:
+        return MaterialPageRoute(
+          builder: (_) => const UserInfo(),
+        );
+        case RoutePath.home:
+        return MaterialPageRoute(
+          builder: (_) => const HomeScreen(),
         );
 
     }

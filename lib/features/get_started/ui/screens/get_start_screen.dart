@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rive/rive.dart';
 
 import '../../../../core/helpers/spacing.dart';
-import '../../../../generated/assets.dart';
 import '../widgets/get_started_content.dart';
 
 class GetStartScreen extends StatelessWidget {
@@ -19,12 +17,8 @@ class GetStartScreen extends StatelessWidget {
         ),
         child: Column(
           children: [
-            const Expanded(
-              child: RiveAnimation.asset(
-                Assets.imagesTree,
-                fit: BoxFit.cover,
-                alignment: Alignment.center,
-              ),
+             Expanded(child: SizedBox.shrink(),
+             
             ),
             Spacing.verticalSpace(20),
             const GetStartedContent(),
