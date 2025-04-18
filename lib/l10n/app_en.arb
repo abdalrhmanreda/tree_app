@@ -1,5 +1,11 @@
 {
+  "appName": "Focus Timer",
   "getStarted": "Get Started",
   "getStartedDescription": "Set personalized timers for daily tasks and stay focused on achieving your goals efficiently.",
-  "getStartedTitle": "Stay on Track with Precision"
+  "getStartedTitle": "Stay on Track with Precision",
+  "enterName": "Enter your name",
+  "enterNameDescription": "Please enter your name to personalize your experience.",
+  "start": "Start",
+  "nameRequired": "Name is required",
+  "hello": "Hello,"
 }

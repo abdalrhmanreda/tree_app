@@ -1,9 +1,8 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter_timer_countdown/flutter_timer_countdown.dart';
-import 'package:lottie/lottie.dart';
-import '../../../../core/constant/app_constant.dart';
-import '../../../../generated/assets.dart';
+import 'package:tree_app/core/cache/shared_pref.dart';
+
+import '../../../foucs_time/ui/screens/foucs_time_screen.dart';
+import '../widgets/custom_bottom_navigation_bar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -12,63 +11,49 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen>
-    with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-  late Animation<double> _sizeAnimation; // Animation to control size/growth
-  Timer? _animationTimer;
+class _HomeScreenState extends State<HomeScreen> {
+  late String userName;
+  DateTime selectedDate = DateTime.now();
+  int currentIndex = 0;
 
   @override
   void initState() {
     super.initState();
-    _controller =
-        AnimationController(vsync: this, duration: const Duration(seconds: 30));
-    _sizeAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(_controller)
-      ..addListener(() {
-        setState(() {});
-      });
-
-    startAnimationCycle();
+    userName = SharedPrefService().getString('userName')!;
   }
 
-  @override
-  void dispose() {
-    _controller.dispose();
-    _animationTimer?.cancel();
-    super.dispose();
-  }
-
-  void startAnimationCycle() {
-    _controller.forward(from: 0);
-  }
+  List<Widget> screens = [
+    const FocusTimeScreen(),
+    const FocusTimeScreen(),
+    const FocusTimeScreen(),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SizedBox(
-            height: AppConstant.deviceHeight(context) / 2.5,
-            width: AppConstant.deviceWidth(context),
-            child: Transform.scale(
-              scale: _sizeAnimation.value, // Apply the gradual growth here
-              child: Lottie.asset(
-                Assets.imagesThree,
-                fit: BoxFit.cover,
-                controller: _controller,
-                repeat: false,
-                reverse: false,
-                frameRate: FrameRate.composition,
-                onLoaded: (composition) {
-                  _controller.duration = const Duration(seconds: 30);
-                },
-              ),
-            ),
-          ),
-        ],
+      extendBody: true,
+      body: screens[currentIndex],
+      bottomNavigationBar: CustomBottomNavigationBar(
+        currentIndex: currentIndex,
+        onTabChange: (index) => setState(() => currentIndex = index),
       ),
     );
   }
 }
+
+/*
+* Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 25),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            GreetingText(userName: userName),
+            Spacing.verticalSpace(25),
+            CustomDateTimeline(
+              selectedDate: selectedDate,
+              onDateChanged: (date) => setState(() => selectedDate = date),
+            ),
+          ],
+        ),
+      )
+* */

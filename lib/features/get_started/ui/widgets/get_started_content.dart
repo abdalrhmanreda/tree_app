@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tree_app/features/get_started/ui/screens/user_info.dart';
 
 import '../../../../config/colors/app_colors.dart';
 import '../../../../config/themes/font_weight.dart';
@@ -9,7 +10,6 @@ import '../../../../core/animation/fade_transaction.dart';
 import '../../../../core/components/custom_button.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/methods/get_responsive_text/responsive_text.dart';
-import '../../../home/ui/screens/home_screen.dart';
 
 class GetStartedContent extends StatelessWidget {
   const GetStartedContent({
@@ -25,38 +25,40 @@ class GetStartedContent extends StatelessWidget {
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            AppLocalizations.of(context)!.getStartedTitle,
+            AppLocalizations.of(context)!.appName,
             style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                  fontSize: getResponsiveFontSize(context, fontSize: 23),
-                  color: AppColors.kWhiteColor,
-                  fontWeight: FontWeightHelper.semiBold,
+                  fontSize: getResponsiveFontSize(context, fontSize: 25),
+                  color: AppColors.kPrimaryColor,
+                  fontWeight: FontWeightHelper.bold,
                 ),
           ),
           Spacing.verticalSpace(10),
           Text(
             AppLocalizations.of(context)!.getStartedDescription,
+            textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                   fontSize: getResponsiveFontSize(context, fontSize: 16),
-                  color: AppColors.kGrayColor,
+                  color: AppColors.kGreyColor,
+
                   height: 1.5,
                   fontWeight: FontWeightHelper.regular,
                 ),
           ),
           Spacing.verticalSpace(20),
           CustomButton(
-            color: AppColors.kWhiteColor,
+            color: AppColors.kPrimaryColor,
             height: 50.h,
             textStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
                   fontSize: getResponsiveFontSize(context, fontSize: 18),
-                  color: AppColors.kBlackColor,
                   fontWeight: FontWeightHelper.semiBold,
+                  color: AppColors.kWhiteColor,
                 ),
             onPressed: () {
               Navigator.push(
-                  context, SecondFadeTransaction(const HomeScreen()));
+                  context, SecondFadeTransaction(const UserInfo()));
             },
             text: AppLocalizations.of(context)!.getStarted,
           ),
