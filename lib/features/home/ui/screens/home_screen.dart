@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tree_app/core/cache/shared_pref.dart';
+import 'package:tree_app/features/task/ui/screens/home_tasks_screen.dart';
 
 import '../../../foucs_time/ui/screens/foucs_time_screen.dart';
 import '../widgets/custom_bottom_navigation_bar.dart';
@@ -22,11 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
     userName = SharedPrefService().getString('userName')!;
   }
 
-  List<Widget> screens = [
-    const FocusTimeScreen(),
-    const FocusTimeScreen(),
-    const FocusTimeScreen(),
-  ];
+  List<Widget> screens = [const HomeTasksScreen(), const FocusTimeScreen()];
 
   @override
   Widget build(BuildContext context) {

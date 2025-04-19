@@ -15,16 +15,16 @@ class GreetingText extends StatelessWidget {
       textAlign: TextAlign.center,
       text: TextSpan(
         style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-          fontSize: getResponsiveFontSize(context, fontSize: 22),
+          fontSize: getResponsiveFontSize(context, fontSize: 20),
           fontWeight: FontWeightHelper.regular,
           color: AppColors.kBlackColor,
         ),
         children: [
-          TextSpan(text: '${AppLocalizations.of(context)!.hello} '),
+          TextSpan(text: '👋 ${AppLocalizations.of(context)!.hello} '),
           TextSpan(
             text: userName,
             style: TextStyle(
-              fontSize: getResponsiveFontSize(context, fontSize: 22),
+              fontSize: getResponsiveFontSize(context, fontSize: 20),
               fontWeight: FontWeightHelper.semiBold,
               color: AppColors.kBlackColor,
             ),

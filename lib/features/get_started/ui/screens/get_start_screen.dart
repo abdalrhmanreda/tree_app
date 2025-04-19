@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tree_app/generated/assets.dart';
 
 import '../../../../core/helpers/spacing.dart';
 import '../widgets/get_started_content.dart';
@@ -11,15 +12,10 @@ class GetStartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.symmetric(
-          horizontal: 10.w,
-          vertical: 20.h,
-        ),
+        padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 20.h),
         child: Column(
           children: [
-             Expanded(child: SizedBox.shrink(),
-             
-            ),
+            Expanded(child: Image.asset(Assets.imagesGet)),
             Spacing.verticalSpace(20),
             const GetStartedContent(),
           ],
