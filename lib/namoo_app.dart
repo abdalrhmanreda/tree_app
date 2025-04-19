@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tree_app/config/routes/routes_path.dart';
 
 import 'config/routes/router.dart';
 import 'config/themes/themes.dart';
@@ -34,7 +35,7 @@ class NamooApp extends StatelessWidget {
                 theme: Style.lightTheme,
                 darkTheme: Style.darkTheme,
                 themeMode: ThemeMode.light,
-                initialRoute: initialRoute,
+                initialRoute: RoutePath.getStarted,
               ),
             ),
           ),

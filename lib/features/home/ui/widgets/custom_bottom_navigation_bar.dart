@@ -3,6 +3,9 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:icons_plus/icons_plus.dart';
 import 'package:tree_app/config/colors/app_colors.dart';
 import 'package:tree_app/core/helpers/spacing.dart';
+import 'package:tree_app/features/task/ui/screens/create_task_screen.dart';
+
+import '../../../../core/animation/fade_transaction.dart';
 
 class CustomBottomNavigationBar extends StatelessWidget {
   final int currentIndex;
@@ -23,6 +26,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
           Expanded(
             flex: 3,
             child: Container(
+              margin: EdgeInsets.only(right: 70),
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(25),
@@ -54,11 +58,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
                     text: 'Home',
                     backgroundColor: AppColors.kWhiteColor,
                   ),
-                  GButton(
-                    icon: Iconsax.heart_outline,
-                    text: 'Likes',
-                    backgroundColor: AppColors.kWhiteColor,
-                  ),
+
                   GButton(
                     icon: Iconsax.clock_outline,
                     text: 'Timer',
@@ -69,15 +69,38 @@ class CustomBottomNavigationBar extends StatelessWidget {
             ),
           ),
           Spacing.horizontalSpace(5),
-          const Expanded(
+          Expanded(
             flex: 1,
-            child: CircleAvatar(
-              radius: 30,
-              backgroundColor: AppColors.kPrimaryColor,
-              child: Icon(
-                Iconsax.add_outline,
-                color: AppColors.kWhiteColor,
-                size: 30,
+            child: GestureDetector(
+              onTap: () {
+                // Handle the tap event here
+                // showModalBottomSheet(
+                //   isScrollControlled: true,
+                //   shape: RoundedRectangleBorder(
+                //     borderRadius: BorderRadius.only(
+                //       topLeft: Radius.circular(20),
+                //       topRight: Radius.circular(20),
+                //     ),
+                //   ),
+                //   context: context,
+                //   builder:
+                //       (context) => Container(
+                //         height: AppConstant.deviceHeight(context) / 1.5,
+                //       ),
+                // );
+                Navigator.push(
+                  context,
+                  SecondFadeTransaction(const CreateTaskScreen()),
+                );
+              },
+              child: CircleAvatar(
+                radius: 30,
+                backgroundColor: AppColors.kPrimaryColor,
+                child: Icon(
+                  Iconsax.add_outline,
+                  color: AppColors.kWhiteColor,
+                  size: 30,
+                ),
               ),
             ),
           ),

@@ -2,12 +2,15 @@
 class Assets {
   Assets._();
 
+  static const String imagesBrain = 'assets/images/brain.png';
   static const String imagesClock = 'assets/images/clock.jpg';
+  static const String imagesGet = 'assets/images/get';
   static const String imagesHello = 'assets/images/hello.json';
   static const String imagesImg = 'assets/images/img.png';
   static const String imagesOne = 'assets/images/one.json';
+  static const String imagesReading = 'assets/images/reading.png';
+  static const String imagesStudy = 'assets/images/study.png';
   static const String imagesThree = 'assets/images/three.json';
   static const String imagesTree = 'assets/images/tree.riv';
   static const String imagesTwo = 'assets/images/two.json';
-
 }

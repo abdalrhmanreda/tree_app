@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:tree_app/config/colors/app_colors.dart';
 import 'package:tree_app/config/themes/font_weight.dart';
+import 'package:tree_app/core/helpers/spacing.dart';
 import 'package:tree_app/core/methods/get_responsive_text/responsive_text.dart';
 
 class CustomDateTimeline extends StatelessWidget {
@@ -17,38 +18,56 @@ class CustomDateTimeline extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return EasyDateTimeLine(
-      initialDate: selectedDate,
-      onDateChange: onDateChanged,
-      activeColor: AppColors.kPrimaryColor,
-      headerProps: EasyHeaderProps(
-        dateFormatter: DateFormatter.custom(
-          DateFormat('d MMM yyyy').format(selectedDate),
-        ),
-        showHeader: false,
-      ),
-      dayProps: EasyDayProps(
-        activeBorderRadius: 32.0,
-        inactiveBorderRadius: 32.0,
-        inactiveDayDecoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(32),
-          color: AppColors.kGrayColor.withOpacity(.2),
-        ),
-        todayStyle: DayStyle(borderRadius: 32),
-        activeDayStyle: DayStyle(
-          dayNumStyle: TextStyle(
-            color: AppColors.kWhiteColor,
-            fontSize: getResponsiveFontSize(context, fontSize: 18),
-            fontWeight: FontWeightHelper.semiBold,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+          child: Text(
+            'Select Date',
+            style: TextStyle(
+              fontSize: getResponsiveFontSize(context, fontSize: 16),
+              fontWeight: FontWeightHelper.semiBold,
+              color: AppColors.kBlackColor,
+            ),
           ),
-          dayStrStyle: TextStyle(color: AppColors.kWhiteColor),
-          monthStrStyle: TextStyle(color: AppColors.kWhiteColor),
         ),
-      ),
-      timeLineProps: const EasyTimeLineProps(
-        hPadding: 16.0,
-        separatorPadding: 16.0,
-      ),
+        Spacing.verticalSpace(15),
+
+        EasyDateTimeLine(
+          initialDate: selectedDate,
+          onDateChange: onDateChanged,
+          activeColor: AppColors.kPrimaryColor,
+          headerProps: EasyHeaderProps(
+            dateFormatter: DateFormatter.custom(
+              DateFormat('d MMM yyyy').format(selectedDate),
+            ),
+            showHeader: false,
+          ),
+          dayProps: EasyDayProps(
+            activeBorderRadius: 32.0,
+            inactiveBorderRadius: 32.0,
+            inactiveDayDecoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(32),
+              color: AppColors.kGrayColor.withOpacity(.2),
+            ),
+            todayStyle: DayStyle(borderRadius: 32),
+            activeDayStyle: DayStyle(
+              dayNumStyle: TextStyle(
+                color: AppColors.kWhiteColor,
+                fontSize: getResponsiveFontSize(context, fontSize: 18),
+                fontWeight: FontWeightHelper.semiBold,
+              ),
+              dayStrStyle: TextStyle(color: AppColors.kWhiteColor),
+              monthStrStyle: TextStyle(color: AppColors.kWhiteColor),
+            ),
+          ),
+          timeLineProps: const EasyTimeLineProps(
+            hPadding: 16.0,
+            separatorPadding: 16.0,
+          ),
+        ),
+      ],
     );
   }
 }
