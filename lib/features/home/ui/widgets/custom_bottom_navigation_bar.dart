@@ -24,7 +24,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
       child: Row(
         children: [
           Expanded(
-            flex: 3,
+            flex: currentIndex == 0 ? 3 : 9,
             child: Container(
               margin: EdgeInsets.only(right: 70),
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
@@ -69,6 +69,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
             ),
           ),
           Spacing.horizontalSpace(5),
+          if(currentIndex == 0)
           Expanded(
             flex: 1,
             child: GestureDetector(

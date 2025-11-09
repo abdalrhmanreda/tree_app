@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:tree_app/config/colors/app_colors.dart';
+import '../../../../l10n/app_localizations.dart';import 'package:tree_app/config/colors/app_colors.dart';
 import 'package:tree_app/config/themes/font_weight.dart';
 import 'package:tree_app/core/methods/get_responsive_text/responsive_text.dart';
 

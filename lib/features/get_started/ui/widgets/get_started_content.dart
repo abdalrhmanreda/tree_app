@@ -1,7 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../../l10n/app_localizations.dart';import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tree_app/features/get_started/ui/screens/user_info.dart';
 
 import '../../../../config/colors/app_colors.dart';

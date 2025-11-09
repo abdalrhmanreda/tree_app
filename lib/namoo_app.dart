@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tree_app/config/routes/routes_path.dart';
 
 import 'config/routes/router.dart';
 import 'config/themes/themes.dart';
+import 'l10n/app_localizations.dart';
 
 class NamooApp extends StatelessWidget {
   const NamooApp({
@@ -25,18 +25,16 @@ class NamooApp extends StatelessWidget {
       builder:
           (context, child) => Directionality(
             textDirection: TextDirection.rtl,
-            child: SafeArea(
-              child: MaterialApp(
-                locale: const Locale('en', 'Us'),
-                localizationsDelegates: AppLocalizations.localizationsDelegates,
-                supportedLocales: AppLocalizations.supportedLocales,
-                debugShowCheckedModeBanner: false,
-                onGenerateRoute: appRouter.generateRoute,
-                theme: Style.lightTheme,
-                darkTheme: Style.darkTheme,
-                themeMode: ThemeMode.light,
-                initialRoute: RoutePath.getStarted,
-              ),
+            child: MaterialApp(
+              locale: const Locale('en', 'Us'),
+              localizationsDelegates: AppLocalizations.localizationsDelegates,
+              supportedLocales: AppLocalizations.supportedLocales,
+              debugShowCheckedModeBanner: false,
+              onGenerateRoute: appRouter.generateRoute,
+              theme: Style.lightTheme,
+              darkTheme: Style.darkTheme,
+              themeMode: ThemeMode.light,
+              initialRoute: RoutePath.getStarted,
             ),
           ),
     );

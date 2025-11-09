@@ -18,6 +18,7 @@ class CreateDataBaseErrorState extends AppStates {}
 class OpenDataBaseSuccessState extends AppStates {}
 
 // insert into database
+class InsertIntoDataBaseLoadingState extends AppStates {}
 
 class InsertIntoDataBaseSuccessState extends AppStates {}
 

@@ -79,4 +79,11 @@ extension FocusTimePrefs on SharedPrefService {
       await setFocusTimes(current);
     }
   }
+  Future<void> removeFocusTime(int time) async {
+    final current = getFocusTimes();
+    if (current.contains(time)) {
+      current.remove(time);
+      await setFocusTimes(current);
+    }
+  }
 }
